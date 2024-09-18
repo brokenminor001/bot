@@ -24,4 +24,4 @@ stages:          # List of stages for jobs, and their order of execution
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - sudo -u gitlab-runner docker build -t botadmin .
+    - docker build -t botadmin .
