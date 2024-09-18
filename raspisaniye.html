@@ -1,0 +1,53 @@
+{{define "base"}}
+
+   
+   </style>
+    <body onload="DispOne()"> 
+        
+        
+        
+        
+        <form onsubmit="return getValue('commandsasdfasdf')">
+        Название события:    
+            <input type="text" name="commands" size="30" id="name"/>
+       
+                
+
+        Дата:
+            <input type="text" name="commandsdva" placeholder="YYYY-MM-DD" size="10" id="date"/>
+
+    
+        Время:
+            <input type="text" placeholder="HH:MM" size="5" name="time" id="time">    
+           
+            Тип:    
+            <select name="pets" id="type">
+                <option value="training">Тренеровка</option>
+                <option value="gameteamone">Игра Команда 1</option>
+                <option value="gameteamtwo">ИграКоманда 2</option>
+                <option value="gameteamtree">ИграКоманда 3</option>
+                <option value="gameteamfour">ИграКоманда 4</option>
+            <input type="submit" value="Отправить" />        
+            <br>
+            <br>
+            
+            <br>Ближайшие события:<br> 
+        </form>
+        
+        <span id="DispLast"></span>
+        <br>
+        <span id="DispBeforeLast"></span>
+        <br>
+        <span id="DispBeforeBeforeLast"></span>
+        <p>{{ .Message}}</p>
+    
+
+        <script src="/script.js"></script>
+       
+       
+        
+    </body>
+   
+    {{end}}
+
+    {{template "base" .}}

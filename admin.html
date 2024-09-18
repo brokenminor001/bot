@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        
+    </head>
+    {{define "main"}}
+    
+    <body>
+        
+        <p>{{ .Mess}}</p>
+    
+       
+               
+        <script src="/script.js"></script>
+        
+    </body>
+    
+    {{end}}
+    
+    {{template "main" .}}
+    <a href="/main">Список игроков</a>
+    <a href="/raspisanie">Расписание</a>
+</html>

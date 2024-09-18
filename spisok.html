@@ -1,0 +1,12 @@
+{{define "base"}}
+
+        
+      <body onload="DispOne()">
+        <p>{{ .Message}}</p>   
+        <script src="/script.js"></script> 
+    </body>
+     
+    
+    {{end}}
+
+    {{template "base" .}}
