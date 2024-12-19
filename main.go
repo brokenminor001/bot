@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net/http"
 	"strconv"
 
 	"botdbconnect"
@@ -11,6 +12,14 @@ import (
 )
 
 func main() {
+
+	http.HandleFunc("/health", func(w http.ResponseWriter, r *http.Request) {
+
+		fmt.Print("OK")
+
+	})
+
+	http.ListenAndServe(":17000", nil)
 
 	bot, err := tgbotapi.NewBotAPI("7016522405:AAEw9DeZs9bOHg3cl-iLuF1MLcG9UwjP7S0")
 	if err != nil {
@@ -29,10 +38,7 @@ func main() {
 		if update.Message == nil {
 			continue
 		}
-		// userid := update.Message.From.ID
-		// var convertuserid string
-		// fmt.Print(convertuserid)
-		// convertuserid = strconv.FormatInt(userid, 10)
+
 		switch update.Message.Command() {
 		case "start":
 			userid := update.Message.From.ID
@@ -151,5 +157,7 @@ func main() {
 			bot.Send(msg)
 
 		}
+
 	}
+
 }

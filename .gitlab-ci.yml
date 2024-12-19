@@ -1,13 +1,17 @@
 stages:          # List of stages for jobs, and their order of execution
   - build
-  - test
   - deploy
+  - test
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   script:
-    - docker build -t botadmin2 .
+    - cp botdbconnect /usr/lib/golang/src/
+    - go build main.go
+    - docker build -t bot .
+    - docker build -t adminbot /home/asmolin/go/bot/adminbotdocker/
 deploy-job:
   stage: deploy
   script: 
-    - docker run -d botadmin2
+    - docker run --name bot -d bot
+    - docker run --name adminbot -p 80:80 adminbot
