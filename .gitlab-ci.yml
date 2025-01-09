@@ -9,7 +9,7 @@ build-job:       # This job runs in the build stage, which runs first.
     - cp -r botdbconnect /usr/lib/golang/src/
     - go build main.go
     - docker build -t bot .
-    - docker build -t adminbot /home/asmolin/go/bot/adminbotdocker/
+    - docker build -t adminbot /home/asmolin/go/bot/adminbotdocker/Dockerfile
 deploy-job:
   stage: deploy
   script: 
